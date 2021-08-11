@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Aptitude.Models.Department>
+@{
+    ViewData["Title"] = "Select";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+   
+}
+@section CSS{
+    <link rel="stylesheet" href="~/css/thanhcss.css">
+}
+
+<div class="container-fluid">
+    <div class="card dashboard-body">
+        <div class="card-body">
+            <!--Title Admin dashboard-->
+            <div class="row">
+                <div class="offset-lg-4"></div>
+                <div class="col-lg-4 ">
+                    <h3 class="">Selected Question</h3>
+                </div>
+                <div class="offset-lg-4"></div>
+            </div>
+            @foreach (var item in Model)
+            {
+                int count = 0;
+                int count1 = 0;
+                int count2 = 0;
+                int points = 0;
+                int points1 = 0;
+                int points2 = 0;
+                <!--Selected question-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card w-75">
+                            <h4 class="ques-title-index card-header"><b>@item.Name</b></h4>
+                        </div>
+                    </div>
+                </div>
+                <!---Question-->
+                <div class="row">
+
+                    <!--Selected General Knowledge Question-->
+                    <div class="col-md-4">
+                        <div class="info-box mb-4">
+                            <span class="info-box-icon bg-danger elevation-1">
+                                <a asp-action="SelectGeneral" asp-controller="Exam" asp-route-id="@item.Id">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                            </span>
+                            <div class="info-box-content">
+                                <a asp-action="SelectGeneral" asp-controller="Exam" asp-route-id="@item.Id" class="ques-list-btn">
+                                    <span class="info-box-text  ques-detail-list">General Question</span> <br />
+                                    @foreach (var question in ViewBag.Question)
+                                    {
+                                        if (question.Category == 1 && question.DepartmentId == item.Id)
+                                        {
+                                            count += 1;
+                                            points += question.Level;
+                                        }
+                                    }
+                                    (<span style="color:red">@count</span> Questions) (<span style="color:red">@points</span> pts)
+                                </a>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- fix for small devices only -->
+                    <div class="clearfix hidden-md-up"></div>
+
+                    <!--Selected Math Question-->
+                    <div class="col-md-4">
+                        <div class="info-box mb-4">
+                            <span class="info-box-icon bg-success elevation-1">
+                                <a asp-action="SelectMath" asp-controller="Exam" asp-route-id="@item.Id">
+                                    <i class="fas fa-calculator"></i>
+                                </a>
+                            </span>
+                            <div class="info-box-content">
+                                <a asp-action="SelectMath" asp-controller="Exam" asp-route-id="@item.Id" class="ques-list-btn">
+                                    <span class="info-box-text ques-detail-list">Math Question</span>
+                                    @foreach (var question1 in ViewBag.Question)
+                                    {
+                                        if (question1.Category == 2 && question1.DepartmentId == item.Id)
+                                        {
+                                            count1 += 1;
+                                            points1 += question1.Level;
+                                        }
+                                    }
+                                    (<span style="color:red">@count1</span> Questions) (<span style="color:red">@points1</span> pts)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Selected Computer Technology--->
+                    <div class="col-md-4">
+                        <div class="info-box mb-4">
+                            <span class="info-box-icon bg-warning elevation-1">
+                                <a asp-controller="Exam" asp-action="SelectComputer" asp-route-id="@item.Id">
+                                    <i class="fas fa-laptop"></i>
+                                </a>
+                            </span>
+                            <div class="info-box-content">
+                                <a asp-action="SelectComputer" asp-controller="Exam" asp-route-id="@item.Id" class="ques-list-btn">
+                                    <span class="info-box-text ques-detail-list">Computer Technology</span>
+                                    @foreach (var question2 in ViewBag.Question)
+                                    {
+                                        if (question2.Category == 3 && question2.DepartmentId == item.Id)
+                                        {
+                                            count2 += 1;
+                                            points2 += question2.Level;
+                                        }
+                                    }
+                                    (<span style="color:red">@count2</span> Questions) (<span style="color:red">@points2</span> pts)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        </div>
+    </div>
+
+</div>

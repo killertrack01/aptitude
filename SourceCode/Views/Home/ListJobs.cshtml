@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Aptitude.Models.Department>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Home/userLayout.cshtml";
+}
+<!--Declare a CSS session-->
+@section css{
+    <style>
+        .row.dealer {
+            background: #f6f6f6;
+            box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .link-to-dealer button a {
+            color: #fff;
+        }
+
+        .link-to-dealer button {
+            background-color: #dc3545;
+            border: none;
+            transition: all ease-out 0.5s;
+        }
+
+            .link-to-dealer button:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+    </style>
+}
+<!--end /. Declare a CSS session-->
+<br />
+<!--container-->
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <!--row-->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <!--col-md-8-->
+        <div class="col-md-8">
+            <!--row dealer-->
+            <div class="row dealer">
+                <!--col-md-12-->
+                <div class="col-md-12">
+                    <!--card-->
+                    <div class="card">
+                        <!--card-header-->
+                        <div class="card-header" style="text-align:center">
+                            <h3 style="color:saddlebrown"><i class="fa fa-fw fa-stack-overflow"></i>@item.Name</h3>
+                        </div>
+                        <!--/.card-header-->
+                        <!--card-body-->
+                        <div class="card-body">
+                            <p>
+                                <strong style="color:grey"><i class="fa fa-fw fa-arrow-circle-o-right"></i>Salary :<i class="fa fa-fw fa-dollar"></i> @item.Salary</strong><br />
+                                <strong style="color:grey"><i class="fa fa-fw fa-arrow-circle-o-right"></i>Welfare :<i class="fa fa-fw fa-child"></i> @Html.Raw(item.Welfare)</strong><br />
+                                <strong style="color:grey"><i class="fa fa-fw fa-arrow-circle-o-right"></i>Location :<i class="fa fa-fw fa-flag-checkered"></i> @item.Location</strong><br />
+                            </p>
+                        </div><!--/.card-body-->
+                        <!--card-footer-->
+                        <div class="card-footer" style="text-align:center">
+                            <!--link-to-dealer-->
+                            <div class="link-to-dealer">
+                                <button type="button" class="btn-lg"><a asp-action="JobsDetails" asp-route-id="@item.Id">More Description</a></button>
+                            </div> <!--/.link-to-dealer-->
+                        </div><!--/.card-footer-->
+                    </div><!--/.card-->
+                    <br />
+                </div><!--/.col-md-12-->
+            </div><!--/.row dealer-->
+            <div class="col-md-1"></div>
+        </div><!--/.col-md-8-->
+    </div><!--/.row-->
+    }
+</div><!--/.container-->

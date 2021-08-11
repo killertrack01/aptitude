@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Aptitude.Models.HR>
+@{
+    ViewData["Title"] = "HR";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+@section CSS{
+    <link rel="stylesheet" href="~/css/thanhcss.css">
+}
+<div class="container">
+    <!--Title-->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>List All CV Passed</h1>
+        </div>
+    </div>
+    <!---Table--->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table" id="table1">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>University</th>
+                                <th>General Points</th>
+                                <th>Math Points</th>
+                                <th>Computer Points</th>
+                                <th>Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+
+                                <td>@item.LastName  @item.FirstName</td>
+                                <td>
+                                    @item.Email
+                                </td>
+                                <td>@item.University</td>
+                                <td>
+                                    @foreach (var general in ViewBag.Exam)
+                                    {
+                                        if (general.Id == item.ExamId)
+                                        {
+                                            <span>@general.Mark pts</span>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var math in ViewBag.Exam)
+                                    {
+                                        if (math.Id == (item.ExamId + 1))
+                                        {
+                                            <span>@math.Mark pts</span>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var com in ViewBag.Exam)
+                                    {
+                                        if (com.Id == (item.ExamId + 2))
+                                        {
+                                            <span>@com.Mark pts</span>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var depart in ViewBag.Depart)
+                                    {
+                                        if (depart.Id == item.DepartmentId)
+                                        {
+                                            <span>@depart.Name</span>
+                                        }
+                                    }
+                                </td>
+                                
+
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/hung.js"></script>
+}

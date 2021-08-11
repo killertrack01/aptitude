@@ -1,0 +1,219 @@
+﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a asp-controller="Admin" asp-action="Index" class="brand-link">
+        <img src="/Lte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">DASHBOARD</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!--QUESTION-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Question
+                            <i class=" right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <!--Question Create New-->
+                        <li class="nav-item">
+                            <a asp-action="Question_Create" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-plus nav-icon"></i>
+                                <p>Create New Question</p>
+                            </a>
+                        </li>
+                        <!--List General Question-->
+                        <li class="nav-item">
+                            <a asp-action="Question_General" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p> General Question</p>
+                            </a>
+                        </li>
+                        <!--List Math Question-->
+                        <li class="nav-item">
+                            <a asp-action="Question_Math" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p> Math Question</p>
+                            </a>
+                        </li>
+                        <!--List Computer Technology Question-->
+                        <li class="nav-item">
+                            <a asp-action="Question_Computer" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p> Technology Question </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--DEPARTMENT-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Department
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <!--Question Create New-->
+                        <li class="nav-item">
+                            <a asp-action="Department_Create" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-plus nav-icon"></i>
+                                <p>Create New Department</p>
+                            </a>
+                        </li>
+                        <!--List General Question-->
+                        <li class="nav-item">
+                            <a asp-action="Department_Index" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>List Department</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--ACCOUNT-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Account Management
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <!--Account Create New-->
+                        <li class="nav-item">
+                            <a asp-action="Create_User" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-plus nav-icon"></i>
+                                <p>Create New Account</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!--Report-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-pager"></i>
+                        <p>
+                            Report
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <!--Exam-->
+                        <li class="nav-item">
+                            <a asp-action="ReportExam" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Exam</p>
+                            </a>
+                        </li>
+                        <!--Question-->
+                        <li class="nav-item">
+                            <a asp-action="ReportQuestion" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Question</p>
+                            </a>
+                        </li>
+                        <!--CV-->
+                        <li class="nav-item">
+                            <a asp-action="ReportCV" asp-controller="Admin" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>CV</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--Select question -->
+                @*<li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+                Select Question
+                <i class=" right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview" style="display: none;">*@
+                <!--List General Question-->
+                @*<li class="nav-item">
+            <a asp-action="SelectGeneral" asp-controller="Admin" class="nav-link">
+                <i class="fas fa-list nav-icon"></i>
+                <p>Select General Question</p>
+            </a>
+        </li>*@
+                <!--List Math Question-->
+                @*<li class="nav-item">
+            <a asp-action="SelectMath" asp-controller="Admin" class="nav-link">
+                <i class="fas fa-list nav-icon"></i>
+                <p>Select Math Question</p>
+            </a>
+        </li>*@
+                <!--List Computer Technology Question-->
+                @*<li class="nav-item">
+            <a asp-action="SelectComputer" asp-controller="Admin" class="nav-link">
+                <i class="fas fa-list nav-icon"></i>
+                <p>Select Technology Question </p>
+            </a>
+        </li>*@
+                <!-- End select question -->
+                <!--List General Question-->
+                @*</ul>
+        </li>*@
+                <!-- end Select question -->
+                <li class="nav-item has-treeview">
+                    <a asp-action="Select" asp-controller="Exam" class="nav-link">
+                        <i class="nav-icon fas fa-hand-point-right"></i>
+                        <p>
+                            Select
+                            <i class="fas fa-check right"></i>
+                        </p>
+                    </a>
+                </li>
+                <!--DEPARTMENT-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>
+                           Tested CV
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <!--Question Create New-->
+                        <li class="nav-item">
+                            <a asp-action="AllCV" asp-controller="Exam" class="nav-link">
+                                <i class="fas fa-address-book nav-icon"></i>
+                                <p>List of Tested CV</p>
+                            </a>
+                        </li>
+                        <!--List General Question-->
+                        <li class="nav-item">
+                            <a asp-action="HR" asp-controller="Exam" class="nav-link">
+                                <i class="fas fa-ambulance nav-icon"></i>
+                                <p>HR</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--Log Out-->
+                <li class="nav-item has-treeview">
+                    <a asp-action="LogOut" asp-controller="Exam" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Log Out
+                            <i class="fas fa-sign-out right"></i>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

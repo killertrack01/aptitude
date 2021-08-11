@@ -1,0 +1,234 @@
+﻿/*--------------CSS Admin Question table-------------*/
+table {
+    width: 100%;
+}
+
+th {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+td#question-name {
+    text-align: left;
+    letter-spacing: 0px;
+    font-size: 14px;
+}
+
+td#question-type {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+td#question-answer {
+    text-align: center;
+    font-size: 15px;
+}
+
+td#question-final {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+td#question-level {
+    text-align: center;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.table > tbody > tr > td,
+.table > thead > tr > td {
+    vertical-align: middle;
+}
+
+ul.nav.nav-treeview {
+    margin-left: 15px;
+}
+/*CSS form search in admin */
+#searchtable {
+    padding-bottom: 15px;
+    text-align: right;
+}
+/*Form create question in admin */
+.col-lg-12.body-inner {
+    margin-top: 15px;
+}
+
+.card-header.ques-card-header {
+    background-color: #808080;
+}
+/*Form create depart in admin*/
+.card.body-depart {
+    margin-top: 20px;
+}
+/*End CSS admin table*/
+/*Admin Index*/
+.col-lg-4.dashboard-title-border {
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    background-color: #f1f1f1;
+    padding: 5px 0px 5px 0px;
+}
+
+h3.dashboard-title-text {
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-family: Georgia,Times,"Times New Roman",serif;
+}
+
+span.info-box-text {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: TimesNewRoman,"Times New Roman",Times,Baskerville,Georgia,serif;
+}
+
+.card.dashboard-body {
+    margin-top: 20px;
+    background-color: #F1F1F9;
+}
+
+.ques-title-index {
+    background-color: #f5f5f5;
+}
+
+.depart-title-index {
+    background-color: #f5f5f5;
+}
+
+.user-title-index {
+    background-color: #f5f5f5;
+}
+
+.report-title-index {
+    background-color: #f5f5f5;
+}
+/*question*/
+/*question create*/
+.ques-detail-create {
+    margin-bottom: 5px;
+}
+/*Create Question button link */
+.ques-cre-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .ques-cre-btn:hover {
+        color: deepskyblue;
+        text-decoration: dashed;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+/*question list*/
+.ques-detail-list {
+    margin-bottom: 5px;
+}
+/*List question button link*/
+.ques-list-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .ques-list-btn:hover {
+        color: #5e5eff;
+        text-decoration: dashed;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+
+/*department*/
+/*depart create*/
+.depart-cre-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .depart-cre-btn:hover {
+        color: deepskyblue;
+        text-decoration: dashed;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+/*depart list*/
+.depart-list-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .depart-list-btn:hover {
+        color: #5e5eff;
+        text-decoration: dashed;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+/*User*/
+/*User Create*/
+.user-cre-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .user-cre-btn:hover {
+        color: deepskyblue;
+        text-decoration: dashed;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+/*Report*/
+/*Report exam*/
+.report-detail-title {
+    margin-bottom: 5px;
+}
+
+.report-exam-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .report-exam-btn:hover {
+        color: #5e5eff;
+        text-decoration: dashed;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+.report-CV-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .report-CV-btn:hover {
+        color: #5e5eff;
+        text-decoration: dashed;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+.report-ques-btn {
+    color: #ababab;
+    text-decoration: none;
+}
+
+    .report-ques-btn:hover {
+        color: #5e5eff;
+        text-decoration: dashed;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+    }
+/*Validattion*/
+span#depart-validate {
+    color: red;
+}
+
+span#ques-validate {
+    color: red;
+}

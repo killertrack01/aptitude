@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Home/userLayout.cshtml";
+}
+@section css{
+}
+<hr />
+<!--container-->
+<div class="container">
+    <!--section-->
+    <section class="thanks-for">
+        <!--row-->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <!--col-md-6-->
+            <div class="col-md-6" style="text-align:center">
+                <h3>Thank you for signing up for a CV</h3>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Homepage">Back to Home Page</a><br>
+            </div> <!--/.col-md-6-->
+            <div class="col-md-3"></div>
+        </div>    <!--/. row-->
+    </section><!--/.section-->
+</div><!--/.container-->

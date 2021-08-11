@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Aptitude.Models.Question>
+@{
+    ViewData["Title"] = "Select Question Math";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+@section CSS{
+    <link rel="stylesheet" href="~/css/thanhcss.css">
+    <link rel="stylesheet" href="~/toastr/toastr.min.css" />
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <!--Title-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="card-title">List General Question of @ViewBag.nameDepart</h1>
+                        </div>
+                    </div>
+                    <!--Search using partial view name: _Search-->
+                    <div class="row" id="searchtable">
+                        <div class="col-lg-8" style="text-align: left;">
+                            <span>Total:</span><span id="total">@ViewBag.points</span> pts <span>|| Question Quantity:</span><span id="quantity">@ViewBag.count</span>
+                        </div>
+
+                    </div>
+                    <!--Table using partial view name: _Table-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-bordered table-hover " id="table1">
+                                <thead class="thead-dark">
+                                    <partial name="_TableQuestion" />
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        //Filter exam section by value (1:general knowlegde||2:Math||3:Computer Technology)
+                                        if (item.Category == 1)
+                                        {
+                                    <tr>
+                                        <td id="question-type">
+                                            @foreach (var item1 in ViewBag.Depart)
+                                                    {
+                                                        if (item1.Id == item.DepartmentId)
+                                                        {
+                                            @item1.Name}
+                                                    }
+                                        </td>
+                                        <td id="question-name">
+                                            <p>@item.QuestionName</p>
+                                        </td>
+                                        <td id="question-answer">
+                                            <p>@item.Answer1</p>
+                                        </td>
+                                        <td id="question-answer">
+                                            <p>@item.Answer2</p>
+                                        </td>
+                                        <td id="question-answer">
+                                            <p>@item.Answer3</p>
+                                        </td>
+                                        <td id="question-answer">
+                                            <p>@item.Answer4</p>
+                                        </td>
+                                        <td id="question-final">
+                                            <p>@item.FinalAnswer</p>
+                                        </td>
+                                        <td id="question-level">
+                                            @if (item.Level == 10)
+                                                    {
+                                            <p>Easy</p> }
+                                                    else if (item.Level == 20)
+                                                    {
+                                            <p>Medium</p> }
+                                                    else
+                                                    {
+                                            <p>Hard</p>}
+                                        </td>
+                                        <td id="question-status">
+                                            @if (item.Status == 1)
+                                                    {
+                                            <button id="@item.Id" value="@item.Status" data-id="@item.DepartmentId" class="btn-success @item.Id">Enable</button> }
+                                                    else
+                                                    {
+                                            <button id="@item.Id" value="@item.Status" data-id="@item.DepartmentId" class="btn-danger @item.Id">Disable</button>}
+                                        </td>
+                                    </tr>
+}
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/hung.js"></script>
+    <script src="~/toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('button').on('click', function () {
+                var result = $(this).attr('id');
+                var val = $(this).val();
+                var depart = $(this).attr("data-id");
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("Change")",
+                    data: { sms: val, result: result, cate: 1, depart: depart },
+                    dataType: "json",
+                    //contentType: "application/json; charset=utf-8",
+                    //processData: false,
+                    success: function (msg) {
+
+
+                        if (msg.result == 1)
+                            toastr.error("Question max is 5.");
+                        if (msg.result == 2)
+                            toastr.error("Total score can not greater than 100.");
+                        if (msg.result == 0)
+                        {
+                            //var pointString = "" + msg.points;
+                            $('span#total').text(msg.points);
+                            $('span#quantity').text(msg.count);
+                            if (msg.baz == 1) {
+                                $('button#' + msg.foo).text("Enable");
+                                $('button#' + msg.foo).val(1);
+                                $('button#' + msg.foo).removeClass();
+                                $('button#' + msg.foo).addClass("btn-success");
+                            }
+                            if (msg.baz == 0) {
+                                $('button#' + msg.foo).text("Disable");
+                                $('button#' + msg.foo).val(0);
+                                $('button#' + msg.foo).removeClass();
+                                $('button#' + msg.foo).addClass("btn-danger");
+                            }
+                            if (msg.count != 5 || msg.points != 100) {
+                                toastr.error("Total score must be 100 and total question must be 5 questions.");
+                            }
+                            if (msg.count == 5 && msg.points == 100) {
+                                toastr.success("Ok Done.");
+                            }
+                        }
+
+                    },
+                    error: function (req, status, error) {
+                        toastr.error("Total score can not greater than 100.");
+                    }
+                });
+            });
+        });
+    </script>
+}
